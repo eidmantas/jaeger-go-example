@@ -2,6 +2,8 @@ version: '3'
 services:
   service-a:
     image: service-a
+    build:
+      dockerfile: service-a/Dockerfile
     ports:
       - "8081:8081"
     environment:
@@ -13,6 +15,8 @@ services:
       - JAEGER_REPORTER_LOG_SPANS=true
   service-b:
     image: service-b
+    build:
+      dockerfile: service-b/Dockerfile
     environment:
       - JAEGER_SERVICE_NAME=service-b
       - JAEGER_AGENT_HOST=jaeger
